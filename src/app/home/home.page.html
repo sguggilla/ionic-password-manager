@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Password Manager
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container">
+    <ion-list>
+      <ion-item [button]="true" *ngFor="let password of passwords" (click)="editPassword(password)">
+        <ion-thumbnail slot="start">
+          <img [src]="getFaviconUrl(password.url)" alt="Favicon">
+        </ion-thumbnail>
+        <ion-label>{{password.url}}</ion-label>
+        <ion-note slot="end">6</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
